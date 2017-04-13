@@ -44,8 +44,8 @@ Item {
     Plasmoid.backgroundHints: showBackground ? "DefaultBackground" : "NoBackground"
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
 
-    Plasmoid.toolTipMainText: "Mousehover Icon Text"
-    Plasmoid.toolTipSubText: "Mousehover Subtext"
+    Plasmoid.toolTipMainText: i18n("Mousehover Icon Text")
+    Plasmoid.toolTipSubText: i18n("Mousehover Subtext")
 
     /** COMPACT **/
     Plasmoid.compactRepresentation: Component {
@@ -53,7 +53,18 @@ Item {
             id: compactRoot
 
             onClicked: plasmoid.expanded = !plasmoid.expanded
-            //compact represantation like svg
+            //example compact representation like svg-icon
+            PlasmaCore.SvgItem {
+
+                anchors.fill: parent
+                height: 100
+                width: 100
+
+                svg: PlasmaCore.Svg {
+                    imagePath: plasmoid.file("images", "k.svg");
+                }
+
+            }
         }
     }
 
